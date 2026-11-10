@@ -2,5 +2,13 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "github>damoun/renovate-config"
+  ],
+  "packageRules": [
+    {
+      "description": "Goreleaser's release version is an input value of goreleaser-action (with: version: vX), not an action without a digest; pinning a digest for it would fail the pin branch every run.",
+      "matchManagers": ["github-actions"],
+      "matchDepNames": ["goreleaser/goreleaser"],
+      "pinDigests": false
+    }
   ]
 }
