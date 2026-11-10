@@ -2,6 +2,7 @@ package collector
 
 import (
 	"log/slog"
+	"strings"
 
 	"github.com/damoun/twitch_exporter/internal/eventsub"
 	"github.com/nicklaw5/helix/v2"
@@ -56,7 +57,7 @@ func (c channelUpCollector) Update(ch chan<- prometheus.Metric) error {
 		game := ""
 
 		for _, s := range streamsResp.Data.Streams {
-			if s.UserName == n {
+			if strings.EqualFold(s.UserName, n) {
 				state = 1
 				game = s.GameName
 				break
