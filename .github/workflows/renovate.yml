@@ -1,0 +1,30 @@
+---
+name: Renovate
+
+on:
+  workflow_dispatch:
+  schedule:
+    # every day at 03:17 UTC
+    - cron: "17 3 * * *"
+  push:
+    branches:
+      - main
+
+permissions: {}
+
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Run Renovate
+        uses: renovatebot/github-action@266fef21329c44765ad42f9dea1f01f5d2d91084 # v46.3.13
+        env:
+          LOG_LEVEL: info
+        with:
+          token: ${{ secrets.RENOVATE_TOKEN }}
+          configurationFile: renovate.json
