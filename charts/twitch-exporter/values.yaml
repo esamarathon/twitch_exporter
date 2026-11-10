@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: ghcr.io/damoun/twitch-exporter
+  repository: ghcr.io/esamarathon/twitch-exporter
   pullPolicy: IfNotPresent
   tag: ""
 

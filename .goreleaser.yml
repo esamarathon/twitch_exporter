@@ -28,7 +28,7 @@ builds:
 
 dockers_v2:
   - images:
-      - "ghcr.io/damoun/twitch-exporter"
+      - "ghcr.io/esamarathon/twitch-exporter"
     tags:
       - "{{ .Version }}"
       - latest

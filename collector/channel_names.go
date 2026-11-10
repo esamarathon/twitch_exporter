@@ -1,6 +1,9 @@
 package collector
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 // ChannelNames represents a list of twitch channels.
 type ChannelNames []string
@@ -10,9 +13,14 @@ func (c ChannelNames) IsCumulative() bool {
 	return true
 }
 
-// Set sets the value of a ChannelNames
+// Set sets the value of a ChannelNames. The value may be a single channel
+// name, or a comma-separated list of channel names.
 func (c *ChannelNames) Set(v string) error {
-	*c = append(*c, v)
+	for _, name := range strings.Split(v, ",") {
+		if name = strings.TrimSpace(name); name != "" {
+			*c = append(*c, name)
+		}
+	}
 	return nil
 }
 

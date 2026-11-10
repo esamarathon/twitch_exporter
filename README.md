@@ -162,19 +162,22 @@ Useful for development without hitting Twitch rate limits.
 
 ## Using Docker
 
-You can deploy this exporter using the `ghcr.io/damoun/twitch-exporter` Docker image.
+You can deploy this exporter using the `ghcr.io/esamarathon/twitch-exporter` Docker image.
 
 For example:
 
 ```bash
-docker pull ghcr.io/damoun/twitch-exporter
+docker pull ghcr.io/esamarathon/twitch-exporter
 
 docker run -d -p 9184:9184 \
-        ghcr.io/damoun/twitch-exporter \
+        ghcr.io/esamarathon/twitch-exporter \
         --twitch.client-id <client-id> \
         --twitch.client-secret <client-secret> \
         --twitch.channel dam0un
 ```
+
+Multiple channels can be given by repeating `--twitch.channel` or by using a
+comma-separated list (`--twitch.channel one,two,three`).
 
 ## Using Helm
 
