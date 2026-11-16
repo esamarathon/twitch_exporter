@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: ghcr.io/esamarathon/twitch-exporter
   pullPolicy: IfNotPresent
-  tag: ""
+  tag: "@sha256:b0fac8e74c73ab2db3de14b7685aa178140c946a724aab18478fce87566d316a"
 
 imagePullSecrets: []
 
